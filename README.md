@@ -13,7 +13,9 @@ n3_mcp.py    MCP server (stdio JSON-RPC) — tools n3_info, n3_set_key(s), n3_se
 .mcp.json    registers the server for Claude Code when run from this directory
 .claude/skills/n3        how to use the CLI/MCP, layout, conventions
 .claude/skills/n3-menu   ask the user questions through the physical keys
-examples/    keymap.json (watch mode), status.json (layout)
+examples/    keymap.json (watch mode), status.json (layout),
+             claude_dashboard.py (live tiles: Claude/Codex quotas, active sessions, ping,
+             app launcher, volume/brightness knobs; `--install` runs it as a login agent)
 ```
 
 ## Setup
