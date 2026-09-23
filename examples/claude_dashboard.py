@@ -68,20 +68,27 @@ def tile(digit, sub, color, digit_color=INK, unit=""):
     d = ImageDraw.Draw(im)
     d.rounded_rectangle([0, 0, w - 1, h - 1], radius=10, fill="#1a1a1e")
     s = str(digit)
-    size = 30 if len(s) <= 2 else 22 if len(s) == 3 else 17
+    size = 44 if len(s) <= 2 else 32 if len(s) == 3 else 24
     font = n3._font(size)
-    unit_font = n3._font(max(9, int(size * 0.45)))
+    unit_font = n3._font(max(10, int(size * 0.4)))
     tw = d.textbbox((0, 0), s, font=font)[2]
     uw = d.textbbox((0, 0), unit, font=unit_font)[2] if unit else 0
+    while tw + uw > w - 4 and size > 12:  # shrink until it fits
+        size -= 2
+        font = n3._font(size)
+        unit_font = n3._font(max(10, int(size * 0.4)))
+        tw = d.textbbox((0, 0), s, font=font)[2]
+        uw = d.textbbox((0, 0), unit, font=unit_font)[2] if unit else 0
     x = (w - tw - uw) // 2
-    d.text((x, 10), s, fill=ImageColor.getrgb(digit_color), font=font)
+    top = 2
+    d.text((x, top), s, fill=ImageColor.getrgb(digit_color), font=font)
     if unit:
-        d.text((x + tw + 1, 10 + size - int(size * 0.45)), unit, fill=ImageColor.getrgb(color), font=unit_font)
-    sf = n3._font(9)
+        d.text((x + tw + 1, top + size - int(size * 0.4) - 2), unit, fill=ImageColor.getrgb(color), font=unit_font)
+    sf = n3._font(10)
     while sf and d.textbbox((0, 0), sub, font=sf)[2] > w - 4 and len(sub) > 3:
         sub = sub[:-2]
     sw = d.textbbox((0, 0), sub, font=sf)[2]
-    d.text(((w - sw) // 2, h - 14), sub, fill=ImageColor.getrgb(color), font=sf)
+    d.text(((w - sw) // 2, h - 13), sub, fill=ImageColor.getrgb(color), font=sf)
     return im
 
 
