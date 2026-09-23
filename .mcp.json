@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "n3": {
+      "command": "python3",
+      "args": ["n3_mcp.py"]
+    }
+  }
+}

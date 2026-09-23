@@ -1,0 +1,25 @@
+{
+  "layout": {
+    "brightness": 80,
+    "keys": {
+      "1": {"text": "Term", "bg": "#1e88e5"},
+      "2": {"text": "Safari", "bg": "#fb8c00"},
+      "3": {"text": "Mute", "bg": "#6a1b9a"},
+      "4": {"text": "Lock", "bg": "#c62828"},
+      "5": {"text": "Play", "bg": "#2e7d32"},
+      "6": {"text": "Next", "bg": "#00897b"}
+    },
+    "screen": {"text": "n3 watch", "bg": "#263238"}
+  },
+  "key:1": "open -a Terminal",
+  "key:2": "open -a Safari",
+  "key:3": "osascript -e 'set volume output muted (not (output muted of (get volume settings)))'",
+  "key:4": "pmset displaysleepnow",
+  "key:5": "osascript -e 'tell application \"Music\" to playpause'",
+  "key:6": "osascript -e 'tell application \"Music\" to next track'",
+  "knob:1:left": "n3 brightness -10",
+  "knob:1:right": "n3 brightness +10",
+  "knob:3:left":  "osascript -e 'set volume output volume ((output volume of (get volume settings)) - 5)'",
+  "knob:3:right": "osascript -e 'set volume output volume ((output volume of (get volume settings)) + 5)'",
+  "knob:3:press": "osascript -e 'set volume output muted true'"
+}

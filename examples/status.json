@@ -1,0 +1,10 @@
+{
+  "brightness": 70,
+  "clear": true,
+  "keys": {
+    "1": {"text": "build\nOK", "bg": "#2e7d32"},
+    "2": {"text": "tests\n3 fail", "bg": "#c62828"},
+    "3": {"text": "deploy\nidle", "bg": "#455a64"}
+  },
+  "screen": {"text": "main @ 4f2a1c\nCI: running", "bg": "#1a237e"}
+}
