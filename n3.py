@@ -758,12 +758,12 @@ class Daemon:
             pass
         finally:
             with self.subs_lock:
-                if f in self.subs:
-                    return
-            try:
-                conn.close()
-            except Exception:
-                pass
+                subscribed = f in self.subs
+            if not subscribed:
+                try:
+                    conn.close()
+                except Exception:
+                    pass
 
     def run(self):
         import socket
